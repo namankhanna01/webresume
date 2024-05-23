@@ -1,0 +1,169 @@
+from flask import Flask, render_template_string
+
+app = Flask(__name__)
+
+html_content = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naman Khanna - AI Engineer</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(90deg, #ff4e50, #f9d423);
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000;
+        }
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.5em;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #1e1e1e;
+            padding: 10px;
+        }
+        nav a {
+            color: #f9d423;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        nav a:hover {
+            color: #ff4e50;
+        }
+        .container {
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            border-bottom: 2px solid #f9d423;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #f9d423;
+        }
+        .profile, .employment, .education, .skills, .hobbies {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .section img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px 0;
+            border: 3px solid #ff4e50;
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #1e1e1e;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer p {
+            margin: 0;
+        }
+        a {
+            color: #f9d423;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Naman Khanna</h1>
+        <p>AI Engineer | Python Developer | Data Analyst</p>
+    </header>
+    <nav>
+        <a href="#profile">Profile</a>
+        <a href="#employment">Employment</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="container">
+        <div id="profile" class="section profile">
+            <h2>Profile</h2>
+            <p>In today's fast changing world, I have always found AI as something that has great potential to change the world we live in. I believe AI is something that can do wonders if used in the right way. During my BE course duration, I was fascinated by the concept of Machine Learning and wish to contribute to the society in the same field.</p>
+            <img src="https://via.placeholder.com/800x400" alt="AI Image">
+        </div>
+        <div id="employment" class="section employment">
+            <h2>Employment History</h2>
+            <p><strong>Artificial Intelligence Engineer at SquareYards, Gurgaon</strong></p>
+            <p>June 2023 — January 2024</p>
+            <ul>
+                <li>Created AI chatbots using Langchain and trained image models using LoRA.</li>
+                <li>Core competencies include problem-solving, creativity, and collaboration.</li>
+                <li>Passionate about applying AI to real estate and enhancing customer experience.</li>
+            </ul>
+            <img src="https://via.placeholder.com/800x400" alt="Work Image">
+        </div>
+        <div id="education" class="section education">
+            <h2>Education</h2>
+            <p><strong>BE, BMS Institute of Technology and Management, Bengaluru</strong></p>
+            <p>July 2019 — June 2023</p>
+            <p>Completed a BE degree in Computer Science and Engineering.</p>
+            <p><strong>High School, GD Goenka Public School, Delhi</strong></p>
+            <p>April 2007 — March 2019</p>
+            <p>Completed 10th and 12th CBSE board exams.</p>
+            <p><strong>Data Analytics and AI, Coding Ninjas, Delhi</strong></p>
+            <p>February 2024 — August 2024 (ongoing)</p>
+            <img src="https://via.placeholder.com/800x400" alt="Education Image">
+        </div>
+        <div id="skills" class="section skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>Python</li>
+                <li>MySQL</li>
+                <li>Microsoft Excel</li>
+                <li>C++</li>
+                <li>Microsoft Office</li>
+                <li>Web Development (HTML, CSS)</li>
+                <li>C Language</li>
+            </ul>
+            <img src="https://via.placeholder.com/800x400" alt="Skills Image">
+        </div>
+        <div id="hobbies" class="section hobbies">
+            <h2>Hobbies</h2>
+            <p>Sports, Reading business-related blogs, watching AI-related material available online.</p>
+            <img src="https://via.placeholder.com/800x400" alt="Hobbies Image">
+        </div>
+        <div id="contact" class="section contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:namankhanna190101@gmail.com">namankhanna190101@gmail.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/naman-k-19a846b5/" target="_blank">linkedin.com/in/naman-k-19a846b5/</a></p>
+        </div>
+    </div>
+    <footer>
+        <p>© 2024 Naman Khanna. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+"""
+
+@app.route('/')
+def home():
+    return render_template_string(html_content)
+
+if __name__ == '__main__':
+    app.run(debug=True)
